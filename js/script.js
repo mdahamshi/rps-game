@@ -70,7 +70,7 @@ const RPSGame = {
         return;
     },
 };
-
+RPSGame.playGame();
 exports = {
     RPSGame
 };
