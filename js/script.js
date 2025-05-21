@@ -36,18 +36,55 @@ const RPSGame = {
             console.error(`${humanChoice} is not a good input !`)
             return;
         }
+        this.total_result.style.color = 'black';
         let res = this.getResult(humanChoice, computerChoice);
         if(res == 'win'){
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            this.round_result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+            this.round_result.style.color = 'green';
             this.humanScore++;
         }
         if(res == 'lose'){
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            this.round_result.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+            this.round_result.style.color = 'red';
             this.computerScore++;
         }
-        if(res == 'draw')
-            console.log(`Draw! both choosed ${humanChoice}`);
+        if(res == 'draw'){
+            this.round_result.textContent = `Draw! both choosed ${humanChoice}`;
+            this.round_result.style.color = 'orange';
+        }
+        this.total_result.textContent = 
+        `You: ${this.humanScore}  Computer: ${this.computerScore}`;
+        if(this.computerScore == this.turns || this.humanScore == this.turns){
+            if(this.computerScore > this.humanScore){
+                this.total_result.textContent = "You lost ! "
+                this.total_result.style.color = 'red';
+            }
+            else {
+                this.total_result.textContent = "You Won !"
+                this.total_result.style.color = 'green';
+            }
+            this.humanScore = 0;
+            this.computerScore = 0;
+            
+        }
         return;
+    },
+    /**
+     * Adds events and init score dom elements
+     */
+    init(){
+        const rps_btns = document.querySelector('#rps-buttons');
+        rps_btns.addEventListener('click', (e) => {
+            let target = e.target;
+            let choices = this.choices;
+            if(choices.includes(target.id))
+                this.playRound(target.id, this.getComputerChoice());
+            
+        });
+
+        this.round_result = document.querySelector('#round-result');
+        this.total_result = document.querySelector('#total-result');
+
     },
 
     playGame(){
@@ -70,7 +107,8 @@ const RPSGame = {
         return;
     },
 };
-RPSGame.playGame();
+// RPSGame.playGame();
+RPSGame.init();
 exports = {
     RPSGame
 };

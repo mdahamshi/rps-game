@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Open the developer tools to play!</h1>
+    <div id="main">
+        <h1 class="sb-col-card-padding">Welcome to RPS game</h1>
+        <div class="flex-col sb-col-card-padding" id="rps-buttons">
+            <button class="sb-button" id="paper">Paper</button>
+            <button class="sb-button" id="rock">Rock</button>
+            <button class="sb-button" id="scissors">Scissors</button>
+        </div>
+
+        <div id="result" class="flex-col sb-col-card-padding">
+            <div class="flex-row">
+                <h2>Round result:</h2>
+                <p id="round-result"></p>
+
+            </div>
+
+            <div  class="flex-row">
+                <h2>Total:</h2>
+                <p id="total-result"></p>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="js/script.js"></script>
+
 </body>
 </html>
