@@ -8,8 +8,13 @@
     padding: 0;
     font-family: 'Roboto', sans-serif, Tahoma;
 }
+body{
+    height: 100vh;
+}
 #main {
-    margin: 16px;
+    margin: auto;
+    width: 450px;
+    gap: 32px;
 }
 h1{
     text-align: center;
@@ -64,7 +69,11 @@ h1{
     align-items: center;
     gap: 8px;
 }
-
+#result {
+    align-items: flex-start;
+    align-self: flex-start;
+}
 #result .flex-row {
     justify-content: flex-start;
+    
 }
